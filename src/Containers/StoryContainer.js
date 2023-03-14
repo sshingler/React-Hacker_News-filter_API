@@ -4,7 +4,8 @@ import Filter from "../Components/Filter";
 
 const StoryContainer = () => {
 
-    const [stories, setStories] = useState([])
+    const [stories, setStories] = useState([]);
+    const [filterStories, setFilteredStories] = useState([]);
 
     useEffect(() => {
         fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
@@ -12,7 +13,7 @@ const StoryContainer = () => {
         .then((data) => {
             const copyStoryArray = [...data];
             const reducedStoryArray = copyStoryArray.splice(0, 20);
-            console.log(reducedStoryArray);
+            //console.log(reducedStoryArray);
     
             const promises = reducedStoryArray.map((id) => {
                 return fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
@@ -25,6 +26,15 @@ const StoryContainer = () => {
         });
     }, []); 
 
+    const filter = (storySearch) => {
+        const makeLowerCase= storySearch.toLowerCase();
+        const filtererStories = stories.filter((story) => {
+            return story.title.toLowerCase().includes(makeLowerCase);
+        });
+        
+        setFilteredStories(filterStories);
+    }
+
     
 
   
@@ -32,7 +42,7 @@ const StoryContainer = () => {
     return (
         <>
         <h1>Top Stories</h1>
-        <Filter></Filter>
+        <Filter handleChange={filter}/>
         <StoryList stories={stories}/>
         </>
     );

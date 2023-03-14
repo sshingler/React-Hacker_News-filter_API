@@ -1,6 +1,6 @@
 import React from 'react'; 
 
-const Story = ({details, position}) => {
+const Story = ({details}) => {
 
     return(
         <>
