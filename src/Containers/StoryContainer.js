@@ -12,7 +12,7 @@ const StoryContainer = () => {
         .then(res => res.json())
         .then((data) => {
             const copyStoryArray = [...data];
-            const reducedStoryArray = copyStoryArray.splice(0, 20);
+            const reducedStoryArray = copyStoryArray.splice(0, 25);
             //console.log(reducedStoryArray);
     
             const promises = reducedStoryArray.map((id) => {
@@ -28,7 +28,7 @@ const StoryContainer = () => {
 
     const filter = (storySearch) => {
         const makeLowerCase= storySearch.toLowerCase();
-        const filtererStories = stories.filter((story) => {
+        const filterStories = stories.filter((story) => {
             return story.title.toLowerCase().includes(makeLowerCase);
         });
         
@@ -43,7 +43,7 @@ const StoryContainer = () => {
         <>
         <h1>Top Stories</h1>
         <Filter handleChange={filter}/>
-        <StoryList stories={stories}/>
+        <StoryList stories={filterStories}/>
         </>
     );
 

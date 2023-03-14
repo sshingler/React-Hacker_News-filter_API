@@ -1,16 +1,32 @@
 import React, {useState, useEffect} from 'react';
 
-const Filter = () => {
+const Filter = ({handleChange}) => {
 
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const changeSearchTerm = (event) => {
+        event.preventDefault();
+        setSearchTerm(event.target.value);
+    };
+
+    useEffect(() => {
+        handleChange(searchTerm);
+    }, [searchTerm]);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
 
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
         <input
+          onChange={changeSearchTerm}
           type="text"
-          name="search"
-          placeholder="Search"/>
-          </form>
+          name="searchTerm"
+          placeholder="Filter Stories"
+          value={searchTerm} />
+        </form>
     );
 };
 
