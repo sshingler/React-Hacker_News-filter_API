@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -13,12 +14,26 @@ code {
 }
 
 .App {
-
-  background-color: aqua;
+  background-color: #2E294E;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 
 ul {
 
   list-style-type: none;
+}
+
+h1 {
+  color: white;
+}
+
+
+
+h3 {
+  color: white;
 }
