@@ -49,9 +49,8 @@ const StoryContainer = () => {
     return (
         //pass filter function down as props 
         <>
-        <h1>Top Stories</h1>
         <Filter handleChange={filter}/>  
-         <StoryList stories={filterStories}/>
+        <StoryList stories={filterStories}/>
         </>
     );
 

@@ -4,6 +4,7 @@ const Story = ({details}) => {
 
     return(
         <>
+        <div className='story-container'>
         <li>
             <h1><a href={details.url} target="_blank">{details.title} </a></h1>
         </li>
@@ -13,6 +14,7 @@ const Story = ({details}) => {
         <li>
         <h3> Score:{details.score}</h3>
         </li>
+        </div>
         </>
     );
     };
